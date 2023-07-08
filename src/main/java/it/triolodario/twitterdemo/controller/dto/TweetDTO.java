@@ -2,11 +2,20 @@ package it.triolodario.twitterdemo.controller.dto;
 
 import java.util.Objects;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 public class TweetDTO {
 
+	@Schema(name = "id", example = "1", hidden = true)
 	private Long id;
+	
+	@Schema(name = "author", example = "Mario")
 	private String author;
+	
+	@Schema(name = "message", example = "a message")
 	private String message;
+	
+	@Schema(name = "dateTime", example = "22:07 GMT - 07/07/2021")
 	private String dateTime;
 
 	public TweetDTO(Long id, String author, String message, String dateTime) {
