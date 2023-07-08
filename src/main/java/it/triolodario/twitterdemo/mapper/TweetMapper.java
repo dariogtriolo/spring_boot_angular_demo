@@ -2,6 +2,7 @@ package it.triolodario.twitterdemo.mapper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 import java.util.TimeZone;
 
@@ -15,7 +16,7 @@ public class TweetMapper {
 
 	private static final Logger log = LoggerFactory.getLogger(TweetMapper.class);
 
-	private static final String DATE_TIME_FORMAT = "HH:mm z - dd/mm/yyyy";
+	private static final String DATE_TIME_FORMAT = "HH:mm z - dd/MM/YYYY";
 
 	private TweetMapper() {
 	}
@@ -32,10 +33,8 @@ public class TweetMapper {
 
 	public static Tweet toEntity(TweetDTO tweetDTO) throws ParseException {
 
-		SimpleDateFormat formatter = new SimpleDateFormat(DATE_TIME_FORMAT);
-		formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
-		Date myDate = formatter.parse(tweetDTO.getDateTime());
-		return new Tweet(tweetDTO.getAuthor(), tweetDTO.getMessage(), myDate.toInstant());
+		Instant instant = Instant.ofEpochSecond(Long.parseLong(tweetDTO.getDateTime()));
+		return new Tweet(tweetDTO.getAuthor(), tweetDTO.getMessage(), instant);
 
 	}
 }

@@ -17,4 +17,12 @@ public class TweetControllerAdvice {
 	String tweetNotFoundHandler(TweetNotFoundException ex) {
 		return ex.getMessage();
 	}
+	
+	@ResponseBody
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler(Exception.class)
+	public String handleExceptions(Exception ex) {
+		return "Generic error: " + ex.getCause() + ex.getMessage();
+	}
+
 }

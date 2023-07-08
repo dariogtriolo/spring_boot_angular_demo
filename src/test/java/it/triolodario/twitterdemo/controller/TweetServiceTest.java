@@ -38,8 +38,8 @@ public class TweetServiceTest {
 	@BeforeEach
 	void init() {
 
-		tweetsDTO.add(new TweetDTO(1l, "AAAAA", "MMMMM", "22:07 GMT - 01/01/2021"));
-		tweetsDTO.add(new TweetDTO(2l, "BBBBB", "NNNNN", "22:07 GMT - 01/02/2021"));
+		tweetsDTO.add(new TweetDTO(1l, "AAAAA", "MMMMM", "1688854161"));
+		tweetsDTO.add(new TweetDTO(2l, "BBBBB", "NNNNN", "1688854161"));
 	}
 
 	@Test

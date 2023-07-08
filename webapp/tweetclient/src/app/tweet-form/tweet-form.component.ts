@@ -21,9 +21,7 @@ export class TweetFormComponent {
   }
 
   onSubmit() {
-    let gmtDateTime = "22:07 GMT - 07/07/2021";
-
-    this.newTweet.dateTime = gmtDateTime;
+    this.newTweet.dateTime = Math.floor(new Date().getTime() / 1000).toString();
     this.tweets.push(this.newTweet);
     this.tweetsService.save(this.tweets).subscribe(result => this.gotoTweetsList());
   }
@@ -31,4 +29,5 @@ export class TweetFormComponent {
   gotoTweetsList() {
     this.router.navigate(['/tweets']);
   }
+
 }

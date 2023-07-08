@@ -15,7 +15,7 @@ public class TweetDTO {
 	@Schema(name = "message", example = "a message")
 	private String message;
 	
-	@Schema(name = "dateTime", example = "22:07 GMT - 07/07/2021")
+	@Schema(name = "dateTime", example = "1688854161")
 	private String dateTime;
 
 	public TweetDTO(Long id, String author, String message, String dateTime) {

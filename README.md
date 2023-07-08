@@ -15,5 +15,6 @@
 * add HATEOAS
 * Manage errors
 * Entity for Author and Message?
+* maven build for package webapp under /resource
 
 
