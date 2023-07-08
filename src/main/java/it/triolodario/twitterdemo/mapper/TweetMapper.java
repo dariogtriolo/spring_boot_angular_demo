@@ -30,23 +30,12 @@ public class TweetMapper {
 		return new TweetDTO(tweet.getId(), tweet.getAuthor(), tweet.getMessage(), formattedDateTime);
 	}
 
-	public static Tweet toEntity(TweetDTO tweetDTO) {
+	public static Tweet toEntity(TweetDTO tweetDTO) throws ParseException {
 
 		SimpleDateFormat formatter = new SimpleDateFormat(DATE_TIME_FORMAT);
 		formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
-		Date myDate;
+		Date myDate = formatter.parse(tweetDTO.getDateTime());
+		return new Tweet(tweetDTO.getAuthor(), tweetDTO.getMessage(), myDate.toInstant());
 
-		try {
-
-			myDate = formatter.parse(tweetDTO.getDateTime());
-			return new Tweet(tweetDTO.getAuthor(), tweetDTO.getMessage(), myDate.toInstant());
-
-		} catch (ParseException e) {
-
-			log.error(e.getMessage());
-
-		}
-
-		return null;
 	}
 }
