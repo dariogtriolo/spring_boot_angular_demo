@@ -17,7 +17,6 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.triolodario.twitterdemo.controller.dto.TweetDTO;
-import it.triolodario.twitterdemo.repository.TweetRepository;
 import it.triolodario.twitterdemo.service.TweetService;
 
 @SpringBootTest
