@@ -25,6 +25,17 @@ public class TweetDTO {
 		this.message = message;
 		this.dateTime = dateTime;
 	}
+	
+	public TweetDTO(String author, String message, String dateTime) {
+		super();
+		this.author = author;
+		this.message = message;
+		this.dateTime = dateTime;
+	}
+	
+	public TweetDTO() {
+		super();
+	}
 
 	public Long getId() {
 		return id;

@@ -28,7 +28,15 @@ public class TweetMapper {
 		formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
 		String formattedDateTime = formatter.format(myDate);
 
-		return new TweetDTO(tweet.getId(), tweet.getAuthor(), tweet.getMessage(), formattedDateTime);
+		if (tweet.getId() != null) {
+			return new TweetDTO(tweet.getId(), tweet.getAuthor(), tweet.getMessage(), formattedDateTime);
+
+		} else {
+			
+			return new TweetDTO(tweet.getAuthor(), tweet.getMessage(), formattedDateTime);
+
+		}
+
 	}
 
 	public static Tweet toEntity(TweetDTO tweetDTO) throws ParseException {

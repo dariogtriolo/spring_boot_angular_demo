@@ -24,7 +24,7 @@ public class Tweet {
 		this.dateTime = dateTime;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
